@@ -1,0 +1,56 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-customuiauth-staging-183223-authRole",
+      "UnauthRoleArn": "arn:aws:iam::184436697717:role/amplify-customuiauth-staging-183223-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::184436697717:role/amplify-customuiauth-staging-183223-authRole",
+      "Region": "us-west-1",
+      "DeploymentBucketName": "amplify-customuiauth-staging-183223-deployment",
+      "UnauthRoleName": "amplify-customuiauth-staging-183223-unauthRole",
+      "StackName": "amplify-customuiauth-staging-183223",
+      "StackId": "arn:aws:cloudformation:us-west-1:184436697717:stack/amplify-customuiauth-staging-183223/15aa53a0-2d49-11ed-ab4f-0282ba422373",
+      "AmplifyAppId": "d372bp4lvbkpld"
+    }
+  },
+  "auth": {
+    "CustomUIAuth": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "signupAttributes": [
+          "EMAIL",
+          "NAME"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 6,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "output": {
+        "UserPoolId": "us-west-1_wWcrPGnx9",
+        "AppClientIDWeb": "2eoomnh9vbi9ancopmqgp8552i",
+        "AppClientID": "1hjonipo3ds2fpofk4sdtklkhd",
+        "IdentityPoolId": "us-west-1:44e7f157-3451-4997-9018-427e5a327565",
+        "UserPoolArn": "arn:aws:cognito-idp:us-west-1:184436697717:userpool/us-west-1_wWcrPGnx9",
+        "IdentityPoolName": "testAuthIdentityPool__staging",
+        "UserPoolName": "CustomUIAuth"
+      },
+      "lastPushTimeStamp": "2022-09-05T18:53:41.251Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-customuiauth-staging-183223-deployment/amplify-cfn-templates/auth/CustomUIAuth-cloudformation-template.json",
+        "logicalId": "authCustomUIAuth"
+      }
+    }
+  }
+}
