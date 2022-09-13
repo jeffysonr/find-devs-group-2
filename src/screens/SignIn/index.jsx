@@ -56,6 +56,7 @@ export default function SignIn() {
                         placeholderTextColor='#EEE'
                         placeholder='Senha'
                         onChangeText={value => setPassword(value)}
+                        secureTextEntry={true}
                     />
                 </View>
 

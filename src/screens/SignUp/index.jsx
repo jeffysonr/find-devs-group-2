@@ -3,7 +3,8 @@ import styles from './styles'
 import { Auth } from 'aws-amplify'
 import { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
-
+import { Logo } from '../../components/Logo';
+import { AntDesign, Entypo, FontAwesome5, Ionicons, MaterialIcons } from '@expo/vector-icons';
 
 
 export default function SignUp() {
@@ -24,9 +25,9 @@ export default function SignUp() {
 
         try {
             const response = await Auth.signUp({
-            username, 
-            password,
-            attributes:{email,name,preferred_username: username}
+                username,
+                password,
+                attributes: { email, name, preferred_username: username }
             })
             Alert.alert('Código de verificação', 'Veririque o código de confirmação no seu email cadastrado!')
             navigate('ConfirmEmail')
@@ -39,47 +40,78 @@ export default function SignUp() {
 
     return (
         <View style={styles.container}>
+            <Logo />
             <Text style={styles.title}>Faça seu cadastro</Text>
+            <View style={styles.form}>
 
-            <TextInput
-                style={styles.inputs}
-                placeholderTextColor='#EEE'
-                placeholder='Nome:'
-                onChangeText={value => setName(value)}
-            />
+                <View style={styles.inputContainer}>
+                    <View style={styles.icon}>
+                        <FontAwesome5
+                            name="user" size={24} color="#EEE" />
+                    </View>
+                    <TextInput
+                        autoCompleteType='off'
+                        style={styles.inputs}
+                        placeholderTextColor='#EEE'
+                        placeholder='Nome'
+                        onChangeText={value => setName(value)}
+                    />
+                </View>
 
-            <TextInput
-                style={styles.inputs}
-                placeholderTextColor='#EEE'
-                placeholder='Usuário:'
-                onChangeText={value => setUser(value)}
-            />
+                <View style={styles.inputContainer}>
+                    <View style={styles.icon}>
+                        <FontAwesome5
+                            name="user" size={24} color="#EEE" />
+                    </View>
+                    <TextInput
+                        autoCompleteType='off'
+                        style={styles.inputs}
+                        placeholderTextColor='#EEE'
+                        placeholder='Usuário'
+                        onChangeText={value => setUser(value)}
+                    />
+                </View>
 
-            <TextInput
-                style={styles.inputs}
-                placeholderTextColor='#EEE'
-                placeholder='E-mail:'
-                onChangeText={value => setEmail(value)}
-            />
+                <View style={styles.inputContainer}>
+                    <View style={styles.icon}>
+                        <MaterialIcons name="email" size={24} color="#EEE" />
+                    </View>
+                    <TextInput
+                        autoCompleteType='off'
+                        style={styles.inputs}
+                        placeholderTextColor='#EEE'
+                        placeholder='E-mail'
+                        onChangeText={value => setEmail(value)}
+                    />
+                </View>
 
-            <TextInput
-                style={styles.inputs}
-                placeholderTextColor='#EEE'
-                placeholder='Senha:'
-                onChangeText={value => setPassword(value)}
-                secureTextEntry={true}
-            />
-            <Button
-                color='#2D9135'
-                title={loading ? 'Carregando...' : 'Registrar'}
+                <View style={styles.inputContainer}>
+                    <View style={styles.icon}>
+                        <Ionicons name="ios-key-sharp" size={24} color="#EEE" />
+                    </View>
+                    <TextInput
+                        autoCompleteType='off'
+                        style={styles.inputs}
+                        placeholderTextColor='#EEE'
+                        placeholder='Senha'
+                        onChangeText={value => setPassword(value)}
+                        secureTextEntry={true}
+                    />
+                </View>
+            </View>
+            <TouchableOpacity
                 onPress={() => onSignUpPress()}
                 disabled={loading ? true : false}
-                buttonStyle={styles.buttons}
-            />
+                style={styles.buttons}
+            >
+                <Text style={styles.texts}>
+                    {loading ? 'Carregando...' : 'Registrar'}
+                </Text>
+            </TouchableOpacity>
             <TouchableOpacity>
-                <Text 
-                onPress={()=> navigate('SignIn')}
-                style={styles.texts}>
+                <Text
+                    onPress={() => navigate('SignIn')}
+                    style={styles.textLink}>
                     Voltar para a tela de login
                 </Text>
             </TouchableOpacity>
