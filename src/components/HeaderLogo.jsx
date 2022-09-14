@@ -1,6 +1,6 @@
 import { Text, View, StyleSheet} from 'react-native';
 
-export function Logo() {
+export function HeaderLogo() {
 
 
   return (
@@ -14,18 +14,16 @@ export function Logo() {
 const styles = StyleSheet.create({
   container:{
     flexDirection:'row',
-    marginTop : 100 ,
-    marginBottom: 20
   },
   text1:{
-    fontSize: 45,
-    letterSpacing: -5,
+    fontSize: 30,
+    letterSpacing: -3,
     fontWeight: '300',
     fontFamily: 'Poppins_400Regular',
     color: 'white'
   },
   text2:{
-    fontSize: 45,
+    fontSize: 30,
     fontWeight: '700',
     letterSpacing: -3,
     color: 'rgb(91, 222, 102)',

@@ -3,7 +3,8 @@ import styles from './styles'
 import { Auth } from 'aws-amplify'
 import { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
-
+import { Logo } from '../../components/Logo';
+import { AntDesign, Entypo, FontAwesome5, Ionicons, MaterialIcons } from '@expo/vector-icons';
 
 export default function Confirm() {
 
@@ -13,7 +14,7 @@ export default function Confirm() {
     const navigate = useNavigation().navigate
 
 
-    
+
     const onConfirmPress = async () => {
         if (loading) {
             return
@@ -23,7 +24,7 @@ export default function Confirm() {
 
         try {
             const response = await Auth.confirmSignUp(username, code)
-            Alert.alert('Sucesso',"E-mail confirmado com sucesso!")
+            Alert.alert('Sucesso', "E-mail confirmado com sucesso!")
             navigate('SignIn')
         } catch (error) {
             Alert.alert('Oops', error.message)
@@ -49,42 +50,60 @@ export default function Confirm() {
 
     return (
         <View style={styles.container}>
+            <Logo />
             <Text style={styles.title}>Confirme seu E-mail</Text>
+            <View style={styles.form}>
+                <View style={styles.inputContainer}>
+                    <View style={styles.icon}>
+                        <FontAwesome5
+                            name="user" size={24} color="#EEE" />
+                    </View>
+                    <TextInput
+                        autoCompleteType='off'
+                        style={styles.inputs}
+                        placeholderTextColor='#EEE'
+                        placeholder='Usuário'
+                        onChangeText={value => setUser(value)}
+                    />
+                </View>
 
-            <TextInput
-                style={styles.inputs}
-                placeholderTextColor='#EEE'
-                placeholder='Usuário:'
-                onChangeText={value => setUser(value)}
-            />
+                <View style={styles.inputContainer}>
+                    <View style={styles.icon}>
+                    <Ionicons name="ios-key-sharp" size={24} color="#EEE" />
+                    </View>
+                    <TextInput
+                        autoCompleteType='off'
+                        style={styles.inputs}
+                        placeholderTextColor='#EEE'
+                        placeholder='Código'
+                        onChangeText={value => setCode(value)}
+                    />
+                </View>
 
-            <TextInput
-                style={styles.inputs}
-                placeholderTextColor='#EEE'
-                placeholder='Código:'
-                onChangeText={value => setCode(value)}
-            />
-
-
-            <Button
-                color='#2D9135'
-                title={loading ? 'Carregando...' : 'Confirmar'}
+            </View>
+            <TouchableOpacity
                 onPress={() => onConfirmPress()}
                 disabled={loading ? true : false}
-                buttonStyle={styles.buttons}
-            />
+                style={styles.buttons}
+            >
+                <Text style={styles.texts}>
+                    {loading ? 'Carregando...' : 'Confirmar'}
+                </Text>
+            </TouchableOpacity>
 
-            <Button
-                color='#2D9135'
-                title={loading ? 'Carregando...' : 'Reenviar código'}
+            <TouchableOpacity
                 onPress={() => onResendPress()}
                 disabled={loading ? true : false}
-                buttonStyle={styles.buttons}
-            />
+                style={styles.buttons}
+            >
+                <Text style={styles.texts}>
+                    {loading ? 'Carregando...' : 'Reenviar Código'}
+                </Text>
+            </TouchableOpacity>
             <TouchableOpacity>
-                <Text 
-                onPress={()=> navigate('SignIn')}
-                style={styles.texts}>
+                <Text
+                    onPress={() => navigate('SignIn')}
+                    style={styles.textLink}>
                     Voltar para a tela de login
                 </Text>
             </TouchableOpacity>

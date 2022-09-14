@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { Logo } from '../../components/Logo';
 import { AntDesign, Entypo, FontAwesome5, Ionicons, MaterialIcons } from '@expo/vector-icons';
+import { Header } from '../../components/Header';
 
 
 export default function SignUp() {
@@ -39,9 +40,11 @@ export default function SignUp() {
     }
 
     return (
+        <>
+        <Header/>
         <View style={styles.container}>
-            <Logo />
-            <Text style={styles.title}>Faça seu cadastro</Text>
+            
+            <Text style={styles.title}>Faça seu cadastro!</Text>
             <View style={styles.form}>
 
                 <View style={styles.inputContainer}>
@@ -105,16 +108,11 @@ export default function SignUp() {
                 style={styles.buttons}
             >
                 <Text style={styles.texts}>
-                    {loading ? 'Carregando...' : 'Registrar'}
+                    {loading ? 'Carregando...' : 'Cadastrar'}
                 </Text>
             </TouchableOpacity>
-            <TouchableOpacity>
-                <Text
-                    onPress={() => navigate('SignIn')}
-                    style={styles.textLink}>
-                    Voltar para a tela de login
-                </Text>
-            </TouchableOpacity>
+            
         </View>
+        </>
     )
 }

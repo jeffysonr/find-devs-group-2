@@ -97,6 +97,7 @@ export default function Reset() {
                     />
                 </View>
             </View>
+            
             <TouchableOpacity
                 onPress={() => onResetPress()}
                 disabled={loading ? true : false}
