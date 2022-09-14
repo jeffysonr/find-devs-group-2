@@ -3,7 +3,8 @@ import styles from './styles'
 import { Auth } from 'aws-amplify'
 import { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
-
+import { Logo } from '../../components/Logo';
+import { AntDesign, Entypo, FontAwesome5, Ionicons, MaterialIcons } from '@expo/vector-icons';
 
 export default function Forgot() {
 
@@ -47,27 +48,37 @@ export default function Forgot() {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Esqueci a senha:</Text>
-
-            <TextInput
-                style={styles.inputs}
-                placeholderTextColor='#EEE'
-                placeholder='Usuário:'
-                onChangeText={value => setUser(value)}
-            />
-
-            <Button
-                color='#2D9135'
-                title={loading ? 'Carregando...' : 'Resetar'}
+            <Logo/>
+            <Text style={styles.title}>Esqueci a senha</Text>
+            <View style={styles.form}>
+            <View style={styles.inputContainer}>
+                    <View style={styles.icon}>
+                        <FontAwesome5
+                            name="user" size={24} color="#EEE" />
+                    </View>
+                    <TextInput
+                        autoCompleteType='off'
+                        style={styles.inputs}
+                        placeholderTextColor='#EEE'
+                        placeholder='Usuário'
+                        onChangeText={value => setUser(value)}
+                    />
+                </View>
+                </View>
+                <TouchableOpacity
                 onPress={() => onResetPress()}
                 disabled={loading ? true : false}
-                buttonStyle={styles.buttons}
-            />
+                style={styles.buttons}
+            >
+                <Text style={styles.texts}>
+                    {loading ? 'Carregando...' : 'Resetar'}
+                </Text>
+            </TouchableOpacity>
 
             <TouchableOpacity>
                 <Text
                     onPress={() => navigate('SignIn')}
-                    style={styles.texts}>
+                    style={styles.textLink}>
                     Voltar para a tela de login
                 </Text>
             </TouchableOpacity>
