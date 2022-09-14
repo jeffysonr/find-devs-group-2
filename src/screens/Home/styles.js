@@ -156,25 +156,5 @@ export default StyleSheet.create({
     },
 
 
-    modal:{
-        backgroundColor: '#121214',
-        width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height,
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingVertical:20,
-        opacity: 0.8,
-    },
-    cardmodal:{
-        backgroundColor: '#121214',
-        width: '90%',
-        height: '90%',
-        borderRadius: 6,
-    },
-    iconmodal:{
-        backgroundColor: 'red',
-        padding: 20,
-        flexDirection:'row-reverse',
-        justifyContent: 'space-around',
-    }
+
 })

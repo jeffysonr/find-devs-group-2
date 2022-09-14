@@ -43,17 +43,7 @@ export default function Home() {
         <>
 
 
-            <View style={styles.modal}>
-                <View style={styles.cardmodal}>
-                    
-                    <View style={styles.iconmodal}>
-                            <Ionicons name="ios-close" size={36} color="#EEE" />
-                            <Ionicons name="ios-star" size={26} color="#EEE" />
-                        </View>
-
-                    
-                </View>
-            </View>
+            
 
             <Header />
 
