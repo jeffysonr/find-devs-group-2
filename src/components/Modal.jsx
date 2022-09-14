@@ -2,7 +2,7 @@
 import { View, Text,StyleSheet,Dimensions, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-export function CardDev() {
+export function Modal() {
 
   return (
     <View style={styles.modal}>
@@ -96,4 +96,5 @@ modaltext:{
     fontSize: 18,
     color: '#fff',
 },
+
     })
