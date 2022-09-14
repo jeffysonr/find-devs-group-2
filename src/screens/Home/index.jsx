@@ -7,8 +7,6 @@ import { CardDev } from '../../components/CardDev';
 import { useSelector , useDispatch } from 'react-redux'
 import { favStateData,addNewFavorite, removeFavorite } from '../../store/modules/favorites/reducer'
 
-
-
 export default function Home() {
 
     const [search, setSearch] = useState('')
