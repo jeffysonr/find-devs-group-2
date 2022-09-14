@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     fontSize: 45,
     fontWeight: '700',
     letterSpacing: -3,
-    color: 'rgb(91, 222, 102)',
+    color: '#5BDE66',
     fontFamily: 'Poppins_700Bold'
   },
 })
