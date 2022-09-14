@@ -42,9 +42,6 @@ export default function Home() {
     return (
         <>
 
-
-            
-
             <Header />
 
             <View style={styles.container}>

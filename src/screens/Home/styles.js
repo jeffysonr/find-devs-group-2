@@ -155,6 +155,4 @@ export default StyleSheet.create({
         color: '#916134',
     },
 
-
-
 })
