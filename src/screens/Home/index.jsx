@@ -1,18 +1,14 @@
-import { Button, StyleSheet, Text, TextInput, View, TouchableOpacity, Alert, FlatList } from 'react-native';
-import styles from './styles'
-import { Auth } from 'aws-amplify'
+import { Ionicons } from '@expo/vector-icons';
 import { useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
-import { AntDesign, Entypo, FontAwesome5, Ionicons, MaterialIcons } from '@expo/vector-icons';
+import { Text, TextInput, TouchableOpacity, View } from 'react-native';
+import styles from './styles';
 
 import { Header } from '../../components/Header';
 
 
 export default function Home() {
 
-  const [username, setUser] = useState('')
-  const [code, setCode] = useState('')
-  const [password, setPassword] = useState('')
+  const [search, setSearch] = useState('')
   const [loading, setLoading] = useState(false)
 
 
@@ -44,8 +40,7 @@ export default function Home() {
                           style={styles.inputs}
                           placeholderTextColor='#EEE'
                           placeholder='Digite para pesquisar... '
-                          onChangeText={value => setPassword(value)}
-                          secureTextEntry={true}
+                          onChangeText={value => setSearch(value)}
                       />
                       <View style={styles.icon}>
                           <Ionicons name="ios-search" size={16} color="#EEE" />
@@ -54,7 +49,7 @@ export default function Home() {
               </View>
 
               <TouchableOpacity
-                  onPress={() => onResetPress()}
+                  //onPress={() => onResetPress()}
                   disabled={loading ? true : false}
                   style={styles.buttons}
               >

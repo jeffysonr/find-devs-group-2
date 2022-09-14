@@ -25,7 +25,7 @@ const Navigation = () => {
     try {
       const authUser = await Auth.currentAuthenticatedUser({ bypassCache: true })
       setUser(authUser)
-      
+
     } catch (error) {
       setUser(null)
     }
@@ -39,7 +39,7 @@ const Navigation = () => {
 
   useEffect(() => {
     const listener = data => {
-      if(data.payload.event === 'signIn' || data.payload.event === 'signOut'){
+      if (data.payload.event === 'signIn' || data.payload.event === 'signOut') {
         checkUser()
       }
     }
@@ -47,13 +47,13 @@ const Navigation = () => {
     Hub.listen('auth', listener)
   }, [])
 
-  if(user === undefined){
+  if (user === undefined) {
     return (
       <View
-      style={{flex:1, justifyContent: 'center', alignItems:'center',backgroundColor:'#222'}}
+        style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#222' }}
       >
         <ActivityIndicator
-        size={36}
+          size={36}
         />
       </View>
     )
@@ -64,15 +64,15 @@ const Navigation = () => {
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         {user ? (
           <Stack.Screen name="Home" component={Home} />
-        ): (
+        ) : (
           <>
-          <Stack.Screen name="NewPassword" component={Reset} />
-        <Stack.Screen name="SignIn" component={SignIn} />
-        <Stack.Screen name="SignUp" component={SignUp} />
-        <Stack.Screen name="ConfirmEmail" component={Confirm} />
-        <Stack.Screen name="ForgotPassword" component={Forgot} />
-        
-        </>
+            <Stack.Screen name="SignIn" component={SignIn} />
+            <Stack.Screen name="SignUp" component={SignUp} />
+            <Stack.Screen name="ConfirmEmail" component={Confirm} />
+            <Stack.Screen name="ForgotPassword" component={Forgot} />
+            <Stack.Screen name="NewPassword" component={Reset} />
+
+          </>
         )}
       </Stack.Navigator>
     </NavigationContainer>
