@@ -1,8 +1,7 @@
-import { Poppins_100Thin, Poppins_200ExtraLight, Poppins_400Regular, Poppins_500Medium } from '@expo-google-fonts/poppins'
+import { Poppins_100Thin, Poppins_200ExtraLight, Poppins_500Medium } from '@expo-google-fonts/poppins'
 import { StyleSheet, Dimensions, } from 'react-native'
 
 export default StyleSheet.create({
-
     container: {
         backgroundColor: '#202024',
         width: Dimensions.get('window').width,
@@ -38,6 +37,7 @@ export default StyleSheet.create({
         flexDirection: 'row',
         alignSelf: 'flex-start',
         marginLeft: 20,
+        marginBottom: -20,
     },
     title: {
         fontFamily: 'Poppins_400Regular',
@@ -154,27 +154,4 @@ export default StyleSheet.create({
         fontSize: 12,
         color: '#916134',
     },
-
-
-    modal:{
-        backgroundColor: '#121214',
-        width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height,
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingVertical:20,
-        opacity: 0.8,
-    },
-    cardmodal:{
-        backgroundColor: '#121214',
-        width: '90%',
-        height: '90%',
-        borderRadius: 6,
-    },
-    iconmodal:{
-        backgroundColor: 'red',
-        padding: 20,
-        flexDirection:'row-reverse',
-        justifyContent: 'space-around',
-    }
 })

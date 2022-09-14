@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
 import styles from './styles';
 import { Header } from '../../components/Header';
+import { CardDev } from '../../components/CardDev';
 import { useSelector , useDispatch } from 'react-redux'
 import { favStateData,addNewFavorite, removeFavorite } from '../../store/modules/favorites/reducer'
 
@@ -40,7 +41,22 @@ export default function Home() {
 
     return (
         <>
+
+
+            <View style={styles.modal}>
+                <View style={styles.cardmodal}>
+                    
+                    <View style={styles.iconmodal}>
+                            <Ionicons name="ios-close" size={36} color="#EEE" />
+                            <Ionicons name="ios-star" size={26} color="#EEE" />
+                        </View>
+
+                    
+                </View>
+            </View>
+
             <Header />
+
             <View style={styles.container}>
                 <View style={styles.hello}>
                     <Text style={styles.title}>Olá,</Text>
@@ -68,7 +84,7 @@ export default function Home() {
                 </View>
 
                 <TouchableOpacity
-                    //onPress={() => onResetPress()}
+                    // onPress={() => onResetPress('Favs')}
                     disabled={loading ? true : false}
                     style={styles.buttons}
                 >
@@ -210,6 +226,8 @@ export default function Home() {
                 </View>
 
             </View>
+
+       
         </>
     )
 }

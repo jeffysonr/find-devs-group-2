@@ -8,6 +8,7 @@ import Confirm from '../screens/Confirm';
 import Forgot from '../screens/Forgot';
 import Reset from '../screens/Reset';
 import Home from '../screens/Home';
+import Favs from '../screens/Favs';
 import { Auth, Hub } from 'aws-amplify'
 import { ActivityIndicator, View } from 'react-native';
 
@@ -63,15 +64,17 @@ const Navigation = () => {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         {user ? (
-          <Stack.Screen name="Home" component={Home} />
+              <Stack.Screen name="Home" component={Home} />   
+
         ) : (
           <>
-            <Stack.Screen name="SignIn" component={SignIn} />
             <Stack.Screen name="SignUp" component={SignUp} />
             <Stack.Screen name="ConfirmEmail" component={Confirm} />
             <Stack.Screen name="ForgotPassword" component={Forgot} />
             <Stack.Screen name="NewPassword" component={Reset} />
-
+            <Stack.Screen name="SignIn" component={SignIn} />
+            <Stack.Screen name="Favs" component={Favs} />
+            <Stack.Screen name="Home" component={Home} />   
           </>
         )}
       </Stack.Navigator>
