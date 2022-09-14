@@ -26,7 +26,7 @@ export default StyleSheet.create({
         backgroundColor: '#121214',
         color: 'white',
         padding: 10,
-        width: '90.5%',
+        width: '91%',
         marginBottom: 20,
         marginLeft: 15,
         borderRadius: 6,

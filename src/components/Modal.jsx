@@ -14,7 +14,9 @@ export function Modal() {
         </View>
 
         <View style={styles.picmodal}>
-            
+            <View style={styles.cardicon}>
+                <Ionicons style={styles.cardicon} name="person-circle-outline" size={80} color="#EEE" />
+            </View>
         </View>
 
         <View style={styles.infomodal}>
