@@ -32,6 +32,7 @@ export default function Home() {
     
     const isFavorite = favorite.some(item => item.id === card.id)
 
+    
     useEffect(() => {
         console.log(favorite)
     }, [favorite])
