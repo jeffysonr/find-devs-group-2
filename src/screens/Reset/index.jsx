@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { AntDesign, Entypo, FontAwesome5, Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { Logo } from '../../components/Logo';
+import { Header } from '../../components/Header';
 
 export default function Reset() {
 
@@ -50,71 +51,68 @@ export default function Reset() {
     }
 
     return (
-        <View style={styles.container}>
-            <Logo />
-            <Text style={styles.title}>Resetar senha</Text>
+        <>
+            <Header />
+            <View style={styles.container}>
 
-            <View style={styles.form}>
+                <Text style={styles.title}>Resetar senha</Text>
 
-                <View style={styles.inputContainer}>
-                    <View style={styles.icon}>
-                        <FontAwesome5
-                            name="user" size={24} color="#EEE" />
+                <View style={styles.form}>
+
+                    <View style={styles.inputContainer}>
+                        <View style={styles.icon}>
+                            <FontAwesome5
+                                name="user" size={24} color="#EEE" />
+                        </View>
+                        <TextInput
+                            autoCompleteType='off'
+                            style={styles.inputs}
+                            placeholderTextColor='#EEE'
+                            placeholder='Usuário'
+                            onChangeText={value => setUser(value)}
+                        />
                     </View>
-                    <TextInput
-                        autoCompleteType='off'
-                        style={styles.inputs}
-                        placeholderTextColor='#EEE'
-                        placeholder='Usuário'
-                        onChangeText={value => setUser(value)}
-                    />
+
+                    <View style={styles.inputContainer}>
+                        <View style={styles.icon}>
+                            <Ionicons name="ios-key-sharp" size={24} color="#EEE" />
+                        </View>
+                        <TextInput
+                            autoCompleteType='off'
+                            style={styles.inputs}
+                            placeholderTextColor='#EEE'
+                            placeholder='Código'
+                            onChangeText={value => setCode(value)}
+                        />
+                    </View>
+
+                    <View style={styles.inputContainer}>
+                        <View style={styles.icon}>
+                            <Ionicons name="ios-key-sharp" size={24} color="#EEE" />
+                        </View>
+                        <TextInput
+                            autoCompleteType='off'
+                            style={styles.inputs}
+                            placeholderTextColor='#EEE'
+                            placeholder='Senha'
+                            onChangeText={value => setPassword(value)}
+                            secureTextEntry={true}
+                        />
+                    </View>
                 </View>
 
-                <View style={styles.inputContainer}>
-                    <View style={styles.icon}>
-                    <Ionicons name="ios-key-sharp" size={24} color="#EEE" />
-                    </View>
-                    <TextInput
-                        autoCompleteType='off'
-                        style={styles.inputs}
-                        placeholderTextColor='#EEE'
-                        placeholder='Código'
-                        onChangeText={value => setCode(value)}
-                    />
-                </View>
+                <TouchableOpacity
+                    onPress={() => onResetPress()}
+                    disabled={loading ? true : false}
+                    style={styles.buttons}
+                >
+                    <Text style={styles.texts}>
+                        {loading ? 'Carregando...' : 'Resetar'}
+                    </Text>
+                </TouchableOpacity>
 
-                <View style={styles.inputContainer}>
-                    <View style={styles.icon}>
-                        <Ionicons name="ios-key-sharp" size={24} color="#EEE" />
-                    </View>
-                    <TextInput
-                        autoCompleteType='off'
-                        style={styles.inputs}
-                        placeholderTextColor='#EEE'
-                        placeholder='Senha'
-                        onChangeText={value => setPassword(value)}
-                        secureTextEntry={true}
-                    />
-                </View>
+                
             </View>
-            
-            <TouchableOpacity
-                onPress={() => onResetPress()}
-                disabled={loading ? true : false}
-                style={styles.buttons}
-            >
-                <Text style={styles.texts}>
-                    {loading ? 'Carregando...' : 'Resetar'}
-                </Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity>
-                <Text
-                    onPress={() => navigate('SignIn')}
-                    style={styles.textLink}>
-                    Voltar para a tela de login
-                </Text>
-            </TouchableOpacity>
-        </View>
+        </>
     )
 }

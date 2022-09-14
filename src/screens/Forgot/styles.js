@@ -6,7 +6,7 @@ export default StyleSheet.create({
         width: Dimensions.get('window').width,
         height: Dimensions.get('window').height,
         alignItems: 'center',
-        justifyContent: 'center',
+        paddingVertical: 40,
         flex: 1,
     },
 
@@ -30,10 +30,12 @@ export default StyleSheet.create({
         translateX: -10,
     },
     title: {
-        fontFamily: 'Poppins_700Bold',
+        fontFamily: 'Poppins_400Regular',
         fontSize: 20,
         color: 'white',
-        marginBottom: 10
+        marginBottom: 10,
+        alignSelf: 'flex-start',
+        paddingLeft: 40,
 
     },
     texts: {

@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { Logo } from '../../components/Logo';
 import { AntDesign, Entypo, FontAwesome5, Ionicons, MaterialIcons } from '@expo/vector-icons';
+import { Header } from '../../components/Header';
 
 export default function Forgot() {
 
@@ -47,8 +48,10 @@ export default function Forgot() {
     }
 
     return (
+        <>
+        <Header/>
         <View style={styles.container}>
-            <Logo />
+            
             <Text style={styles.title}>Esqueci a senha</Text>
             <View style={styles.form}>
                 <View style={styles.inputContainer}>
@@ -75,13 +78,8 @@ export default function Forgot() {
                 </Text>
             </TouchableOpacity>
 
-            <TouchableOpacity>
-                <Text
-                    onPress={() => navigate('SignIn')}
-                    style={styles.textLink}>
-                    Voltar para a tela de login
-                </Text>
-            </TouchableOpacity>
+            
         </View>
+        </>
     )
 }
