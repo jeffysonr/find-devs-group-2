@@ -4,6 +4,7 @@ import { HeaderLogo } from './HeaderLogo';
 import { Entypo } from '@expo/vector-icons'; 
 import { useNavigation } from '@react-navigation/native';
 
+
 export function Header() {
 
     const navigate = useNavigation().navigate
@@ -11,7 +12,7 @@ export function Header() {
   return (
     <View style={styles.container}>
         <HeaderLogo/>
-        <Entypo name="log-out" size={24} color="#E1E1E6" onPress={() => navigate('SignIn')}/>
+        <Entypo name="log-out" size={20} color="#E1E1E6" onPress={() => navigate('SignIn')}/>
     </View>
   );
 }
@@ -25,8 +26,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        paddingHorizontal: 40,
+        paddingHorizontal: 20,
         paddingTop: 40,
-        
+        elevation: 10,
     },
 })
