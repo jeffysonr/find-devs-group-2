@@ -3,7 +3,8 @@ import styles from './styles'
 import { Auth } from 'aws-amplify'
 import { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
-
+import { AntDesign, Entypo, FontAwesome5, Ionicons, MaterialIcons } from '@expo/vector-icons';
+import { Logo } from '../../components/Logo';
 
 export default function Reset() {
 
@@ -14,7 +15,7 @@ export default function Reset() {
 
     const navigate = useNavigation().navigate
 
-    
+
     const onResetPress = async () => {
         if (loading) {
             return
@@ -50,42 +51,66 @@ export default function Reset() {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Resetar senha:</Text>
+            <Logo />
+            <Text style={styles.title}>Resetar senha</Text>
 
-            <TextInput
-                style={styles.inputs}
-                placeholderTextColor='#EEE'
-                placeholder='Usuário:'
-                onChangeText={value => setUser(value)}
-            />
+            <View style={styles.form}>
 
-            <TextInput
-                style={styles.inputs}
-                placeholderTextColor='#EEE'
-                placeholder='Código:'
-                onChangeText={value => setCode(value)}
-            />
+                <View style={styles.inputContainer}>
+                    <View style={styles.icon}>
+                        <FontAwesome5
+                            name="user" size={24} color="#EEE" />
+                    </View>
+                    <TextInput
+                        autoCompleteType='off'
+                        style={styles.inputs}
+                        placeholderTextColor='#EEE'
+                        placeholder='Usuário'
+                        onChangeText={value => setUser(value)}
+                    />
+                </View>
 
-            <TextInput
-                style={styles.inputs}
-                placeholderTextColor='#EEE'
-                placeholder='Senha:'
-                onChangeText={value => setPassword(value)}
-                secureTextEntry={true}
-            />
+                <View style={styles.inputContainer}>
+                    <View style={styles.icon}>
+                    <Ionicons name="ios-key-sharp" size={24} color="#EEE" />
+                    </View>
+                    <TextInput
+                        autoCompleteType='off'
+                        style={styles.inputs}
+                        placeholderTextColor='#EEE'
+                        placeholder='Código'
+                        onChangeText={value => setCode(value)}
+                    />
+                </View>
 
-            <Button
-                color='#2D9135'
-                title={loading ? 'Carregando...' : 'Resetar'}
+                <View style={styles.inputContainer}>
+                    <View style={styles.icon}>
+                        <Ionicons name="ios-key-sharp" size={24} color="#EEE" />
+                    </View>
+                    <TextInput
+                        autoCompleteType='off'
+                        style={styles.inputs}
+                        placeholderTextColor='#EEE'
+                        placeholder='Senha'
+                        onChangeText={value => setPassword(value)}
+                        secureTextEntry={true}
+                    />
+                </View>
+            </View>
+            <TouchableOpacity
                 onPress={() => onResetPress()}
                 disabled={loading ? true : false}
-                buttonStyle={styles.buttons}
-            />
+                style={styles.buttons}
+            >
+                <Text style={styles.texts}>
+                    {loading ? 'Carregando...' : 'Resetar'}
+                </Text>
+            </TouchableOpacity>
 
             <TouchableOpacity>
                 <Text
                     onPress={() => navigate('SignIn')}
-                    style={styles.texts}>
+                    style={styles.textLink}>
                     Voltar para a tela de login
                 </Text>
             </TouchableOpacity>

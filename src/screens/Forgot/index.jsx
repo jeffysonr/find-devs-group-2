@@ -48,10 +48,10 @@ export default function Forgot() {
 
     return (
         <View style={styles.container}>
-            <Logo/>
+            <Logo />
             <Text style={styles.title}>Esqueci a senha</Text>
             <View style={styles.form}>
-            <View style={styles.inputContainer}>
+                <View style={styles.inputContainer}>
                     <View style={styles.icon}>
                         <FontAwesome5
                             name="user" size={24} color="#EEE" />
@@ -64,8 +64,8 @@ export default function Forgot() {
                         onChangeText={value => setUser(value)}
                     />
                 </View>
-                </View>
-                <TouchableOpacity
+            </View>
+            <TouchableOpacity
                 onPress={() => onResetPress()}
                 disabled={loading ? true : false}
                 style={styles.buttons}
